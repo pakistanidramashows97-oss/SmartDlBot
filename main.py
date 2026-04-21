@@ -10,6 +10,8 @@ from config import API_ID, API_HASH, BOT_TOKEN
 
 from format import build_quality_ui
 
+from youtube.youtube import download_video_sync, download_audio_sync
+
 # Import handlers
 from youtube.youtube import setup_downloader_handler
 from pinterest.pinterest import setup_pinterest_handler
@@ -51,7 +53,7 @@ app = Client(
     bot_token=BOT_TOKEN 
 )
 
-# ------------------- UNIVERSAL LINK HANDLER -------------------
+# ------------------- LINK HANDLER -------------------
 
 @app.on_message(filters.regex(r"^(https?://).+"))
 async def universal_downloader(client, message):
@@ -69,7 +71,7 @@ async def universal_downloader(client, message):
         await message.reply_text("❌ Invalid or unsupported link")
 
 
-# ------------------- CALLBACK HANDLER (MAIN ENGINE) -------------------
+# ------------------- CALLBACK HANDLER -------------------
 
 @app.on_callback_query()
 async def quality_handler(client, callback_query: CallbackQuery):
@@ -77,7 +79,8 @@ async def quality_handler(client, callback_query: CallbackQuery):
     await callback_query.answer()
 
     try:
-        # ---------------- VIDEO ----------------
+
+        # 🎬 VIDEO DOWNLOAD
         if data.startswith("vid|"):
             _, url, format_id = data.split("|")
 
@@ -98,7 +101,7 @@ async def quality_handler(client, callback_query: CallbackQuery):
             os.remove(result["file_path"])
 
 
-        # ---------------- AUDIO ----------------
+        # 🎵 AUDIO DOWNLOAD
         elif data.startswith("audio|"):
             _, url = data.split("|")
 
@@ -119,7 +122,7 @@ async def quality_handler(client, callback_query: CallbackQuery):
             os.remove(result["file_path"])
 
 
-        # ---------------- FALLBACK ----------------
+        # ⚡ BEST QUALITY DOWNLOAD
         elif data.startswith("fast|"):
             _, url = data.split("|")
 
