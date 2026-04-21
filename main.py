@@ -136,7 +136,7 @@ async def help_cmd(client, message):
     ">🔔 For Bot Update News: <a href='https://t.me/anujeditbyak'>Join Now</a>"
 )
 
-    await message.reply_text(text, parse_mode=ParseMode.HTML)
+    await message.reply_text(help_message, parse_mode=ParseMode.HTML)
 
 # ------------------- ABOUT COMMAND -------------------
 
@@ -156,7 +156,7 @@ async def about_cmd(client, message):
         ">🔔 For Bot Update News: <a href='https://t.me/anujeditbyak'>Join Now</a>"
     )
 
-    await message.reply_text(text, parse_mode=ParseMode.HTML)
+    await message.reply_text(about_message, parse_mode=ParseMode.HTML)
 
 # ------------------- BUTTON HELP -------------------
 
@@ -196,8 +196,7 @@ async def help_menu(client, query: CallbackQuery):
     ">🔔 For Bot Update News: <a href='https://t.me/anujeditbyak'>Join Now</a>"
 )
 
-    await query.message.edit_text(
-        text,
+    await query.message.edit_text(help_message, ...)
         parse_mode=ParseMode.HTML,
         reply_markup=InlineKeyboardMarkup([
             [InlineKeyboardButton("🔙 Back", callback_data="start_menu")]
@@ -224,8 +223,7 @@ async def about_menu(client, query: CallbackQuery):
         ">🔔 For Bot Update News: <a href='https://t.me/anujeditbyak'>Join Now</a>"
     )
 
-    await query.message.edit_text(
-        text,
+    await query.message.edit_text(about_message, ...)
         parse_mode=ParseMode.HTML,
         reply_markup=InlineKeyboardMarkup([
             [InlineKeyboardButton("🔙 Back", callback_data="start_menu")]
