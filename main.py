@@ -192,6 +192,9 @@ async def help_menu(client, query: CallbackQuery):
     "   - Example: <code>/ig https://www.instagram.com/reel/xyz/</code>\n"
     "   - Note: Private or 18+ content cannot be downloaded.\n\n"
 
+    "➢ <b>/tt [Video URL]</b> - Download a TikTok video.\n"
+    "   - Example: <code>/tt https://www.tiktok.com/@username/video/1234567890123456789</code>\n"   
+
     "➢ <b>/sp [Track URL]</b> - Download a Spotify track.\n"
     "   - Example: <code>/sp https://open.spotify.com/track/7ouBSPZKQpm7zQz2leJXta</code>\n\n"
 
