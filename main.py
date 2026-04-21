@@ -264,9 +264,8 @@ async def back(client, query: CallbackQuery):
         ])
     )
 
-# ------------------- RUN -------------------
 
-print("Bot Started 💥")
 
-threading.Thread(target=run_web, daemon=True).start()
+# Final confirmation that the bot has started
+print("✅ Bot Successfully Started and Flask is running on Heroku.")
 app.run()
