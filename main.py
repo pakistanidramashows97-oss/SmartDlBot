@@ -157,15 +157,37 @@ async def about_cmd(client, message):
 async def help_menu(client, query: CallbackQuery):
     await query.answer()
 
-    text = (
-        "<b>🎥 Downloader Help</b>\n\n"
-        "/fb - Facebook\n"
-        "/pin - Pinterest\n"
-        "/ig - Instagram\n"
-        "/sp - Spotify\n"
-        "/yt - YouTube\n"
-        "/song - MP3"
-    )
+    help_message = (
+    "<b>🎥 Social Media and Music Downloader</b>\n"
+    "━━━━━━━━━━━━━━━━━━━━━━\n"
+    "<b>USAGE:</b>\n"
+    "Download videos and tracks from popular platforms using these commands:\n\n"
+
+    "➢ <b>/fb [Video URL]</b> - Download a Facebook video.\n"
+    "   - Example: <code>/fb https://www.facebook.com/share/v/18VH1yNXoq/</code>\n"
+    "   - Note: Private Facebook videos cannot be downloaded.\n\n"
+
+    "➢ <b>/pin [Video URL]</b> - Download a Pinterest video.\n"
+    "   - Example: <code>/pin https://pin.it/6GoDMRwmE</code>\n\n"
+
+    "➢ <b>/ig [Video URL]</b> - Download Instagram Reels / Posts.\n"
+    "   - Example: <code>/ig https://www.instagram.com/reel/xyz/</code>\n"
+    "   - Note: Private or 18+ content cannot be downloaded.\n\n"
+
+    "➢ <b>/sp [Track URL]</b> - Download a Spotify track.\n"
+    "   - Example: <code>/sp https://open.spotify.com/track/7ouBSPZKQpm7zQz2leJXta</code>\n\n"
+
+    "➢ <b>/yt [Video URL]</b> - Download a YouTube video.\n"
+    "   - Example: <code>/yt https://youtu.be/In8bfGnXavw</code>\n\n"
+
+    "➢ <b>/song [Video URL]</b> - Download YouTube video as MP3.\n"
+    "   - Example: <code>/song https://youtu.be/In8bfGnXavw</code>\n\n"
+
+    ">NOTE:\n"
+    "1️⃣ Provide a valid public URL for each platform.\n\n"
+
+    ">🔔 For Bot Update News: <a href='https://t.me/anujeditbyak'>Join Now</a>"
+)
 
     await query.message.edit_text(
         text,
